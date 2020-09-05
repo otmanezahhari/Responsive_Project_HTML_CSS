@@ -1,0 +1,908 @@
+/*
+    1. Common Styles
+    2. General Styles
+    3. Header :
+      3.1. Nav
+    4. Home
+*/
+
+/*--------------- 1. common Style 
+
+     - Opacity hover
+     - Section header
+     - section padding
+     - hover effect 1 (left to righ)
+     - hover  effect 2 (top to bottom)
+     - container
+     - Overlay
+----------------------------*/
+
+/*----------- 2. General Css Style---------------------*/
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --mainColor: #10161a;
+  --styleColor: #6195ff;
+  --subColor: #95969b;
+}
+
+body {
+  font-family: "Varela Round", sans-serif;
+}
+
+.container {
+  max-width: 1170px;
+  margin: auto;
+  padding: 0 15px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: var(--mainColor);
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: montserrat, sans-serif;
+}
+
+.btn {
+  padding: 18px 50px;
+  border-radius: 3px;
+  border-style: none;
+  font-family: inherit;
+  color: var(--mainColor);
+  cursor: pointer;
+  font-size: 18px;
+}
+.opacity-hover {
+  transition: opacity 0.7s;
+}
+.opacity-hover:hover {
+  opacity: 0.7;
+}
+
+.section-header {
+  text-align: center;
+}
+.section-header .title-section {
+  text-transform: capitalize;
+  font-size: 35px;
+  margin-top: 144px;
+  margin-bottom: 8px;
+}
+.section-header hr {
+  width: 72px;
+  height: 5px;
+  background-color: var(--styleColor);
+  margin: auto;
+  margin-bottom: 74px;
+}
+.ttb-effet-hover,
+.ltr-effect-hover {
+  position: relative;
+}
+.ttb-effet-hover:after,
+.ltr-effect-hover:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  transition: width 0.4s;
+  z-index: -1;
+}
+.ltr-effect-hover:hover:after {
+  width: 100%;
+}
+.ttb-effet-hover:after {
+  height: 0;
+  width: 100%;
+  transition: height 0.4s;
+}
+.ttb-effet-hover:hover:after {
+  height: 100%;
+}
+.width-100 {
+  width: 100%;
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.text-center {
+  text-align: center;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.white-color {
+  color: #fff;
+}
+/* --------------------------------------3. Start Header ----------------------------*/
+header {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  z-index: 2;
+}
+/* ----- 3.1. Nav -----*/
+header nav ul li a {
+  padding: 15px 20px 0;
+}
+header nav > ul li > a.active:after,
+header nav > ul > li > a:after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 3px;
+  background-color: var(--styleColor);
+  transition: width 0.5s ease-in-out;
+}
+
+header nav > ul > li > a:hover:after,
+header nav > ul > li > a.active:after {
+  width: 100%;
+}
+
+header nav > ul > li > a:hover {
+  color: var(--styleColor);
+}
+
+.click-navbar {
+  display: none;
+}
+@media (max-width: 970px) {
+  .navbar {
+    display: none;
+  }
+  .click-navbar {
+    display: block;
+    color: #fff;
+    cursor: pointer;
+    right: 40px;
+    top: 25px;
+  }
+}
+/*--------------------------- 3.2 Drop down menu------------------------ */
+.dropdown-menu {
+  width: 150px;
+  background-color: var(--styleColor);
+  bottom: -40px;
+  left: -30%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s, visibility 0.7s;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.dropdown-menu li a {
+  padding: 10px 0px 10px 15px;
+}
+
+/*----------------------------------- End Header -------------------------------*/
+
+/*------------------------------ 4. Home --------------------------------------*/
+.home {
+  height: 100vh;
+  background-image: url("../images/background/background1.webp");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.home-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+.home-title {
+  font-size: 60px;
+}
+.home-description {
+  font-size: 18px;
+  margin: 20px 0;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+.home-learn-more,
+.home-get-started {
+  margin-left: 10px;
+  color: var(--mainColor);
+}
+.home-get-started:hover,
+.home-learn-more:hover {
+  color: #fff;
+  background-color: var(--styleColor);
+}
+@media (min-width: 1012px) and (max-width: 1199px) {
+  .home-content {
+    width: 80%;
+  }
+  .home-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 1198px) {
+  .home-content {
+    width: 90%;
+  }
+  .home-title {
+    font-size: 40px;
+  }
+  .home-description {
+    font-size: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .home-content {
+    width: 98%;
+  }
+  .home-title {
+    font-size: 32px;
+  }
+  .btn {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+  }
+}
+/*---------------------------------- End Home -----------------------------------*/ /*------------------------ Start About ---------------------------*/
+
+/* -------------- Start About -----------------*/
+
+.about-content {
+  margin-bottom: 140px;
+}
+.about-item {
+  width: 32%;
+  padding: 60px 0;
+  border: 0.1px solid var(--subColor);
+}
+
+.about-item i {
+  color: var(--styleColor);
+}
+
+.about-title {
+  font-size: 30px;
+  margin: 15px 0;
+  transition: color 0.4s;
+}
+
+.about-description {
+  font-size: 14px;
+  width: 90%;
+  margin: auto;
+  line-height: 1.6;
+  color: var(--subColor);
+  margin-bottom: 15px;
+}
+
+.about-item a.about-link {
+  color: var(--styleColor);
+}
+
+.about-item:hover .about-title {
+  color: #fff;
+}
+@media (max-width: 778px) {
+  .about-content.flex {
+    flex-direction: column;
+  }
+  .about-item {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+}
+@media(min-width:779px) and (max-width: 980px) {
+  
+  .about-item {
+    width: 45%;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+}
+/*--------------------------------------  Start potfolio -----------------------------------------*/
+
+.portfolio {
+  background-color: #fafafa;
+  overflow: hidden;
+  padding-bottom: 176px;
+}
+
+.portfolio-item {
+  width: 29%;
+  margin-bottom: 20px;
+  height: 390px;
+  padding: 18px;
+}
+.portfolio-item img {
+  height: 100%;
+}
+
+.portfolio-hover {
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.portfolio-item:hover .portfolio-hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+.content-hover {
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, -50%);
+}
+
+.content-hover .category {
+  font-size: 18px;
+  color: var(--styleColor);
+  margin-bottom: 4px;
+  top: 10px;
+  transition: top 0.3s;
+}
+
+.content-hover .category-title {
+  font-size: 24px;
+  margin: 10px 0;
+  top: 20px;
+  transition: top 0.6s;
+}
+
+.content-hover i {
+  padding: 20px;
+  background-color: var(--styleColor);
+  margin: 0 8px;
+  cursor: pointer;
+  top: 30px;
+  transition: top 0.9s;
+}
+
+.portfolio-item:hover .content-hover .category-title,
+.portfolio-item:hover .content-hover i,
+.portfolio-item:hover .content-hover .category {
+  top: 0;
+}
+
+@media (max-width: 768px) {
+  .content-portfolio.flex {
+    flex-direction: column;
+  }
+  .portfolio-item {
+    width: 90%;
+    margin: auto;
+   
+  }
+}
+@media (min-width:769px) and (max-width:999px){
+  .portfolio-item{
+    width:45%;
+  }
+}
+/*------------------ Offer--------------------------*/
+.offer {
+  padding-bottom: 146px;
+}
+.offer-item {
+  width: 24%;
+  margin-bottom: 24px;
+  border: 1px solid var(--subColor);
+  padding: 30px 10px 30px 70px;
+}
+.offer-item i {
+  left: 15px;
+  color: var(--styleColor);
+}
+.offer-title {
+  margin-bottom: 10px;
+}
+.offer-description {
+  line-height: 160%;
+  color: var(--subColor);
+}
+
+.offer-item:hover .offer-title {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .offer-content.flex {
+    flex-direction: column;
+  }
+  .offer-item {
+    width: 80%;
+    margin: 0 auto 30px;
+  }
+}
+@media (min-width:769px) and (max-width:999px){
+  .offer-item {
+    width:38%;
+  }
+}
+/*------------------------ Fin Offer ------------------------*/
+
+/*---------------------- Start About us ---------------------------*/
+.choose-us {
+  background-color: #fafafa;
+  overflow: hidden;
+  padding: 170px 0;
+}
+.content-choose-us {
+  width: 48%;
+}
+.title-choose-us {
+  font-size: 38px;
+  margin-bottom: 16px;
+}
+.content-choose-us hr {
+  width: 70px;
+  height: 4px;
+  background-color: var(--styleColor);
+  border-style: none;
+  margin-left: 110px;
+}
+.description-choose-us {
+  line-height: 160%;
+  margin: 60px 0 16px;
+  color: var(--subColor);
+}
+.list-choose-us li {
+  color: var(--subColor);
+  line-height: 250%;
+}
+.list-choose-us i {
+  color: var(--styleColor);
+  margin-right: 4px;
+  border: 2px solid var(--styleColor);
+  border-radius: 50%;
+  font-size: 22px;
+}
+.bollets-choose-us .bollet {
+  padding: 4px;
+  display: inline-block;
+  border: 2px solid var(--styleColor);
+  border-radius: 50%;
+  margin: 10px 10px 0;
+  cursor: pointer;
+}
+.bollets-choose-us .bollet.active {
+  padding: 4px 8px;
+  background-color: var(--styleColor);
+  border-radius: 30%;
+}
+
+@media (max-width: 768px) {
+  .choose-us .flex {
+    flex-direction: column;
+  }
+  .content-choose-us {
+    width: 80%;
+    margin: 0 auto 30px;
+  }
+  .title-choose-us {
+    text-align: center;
+  }
+}
+/*--------------------Fin Choose-US styling ----------------------*/
+
+/*--------------------Start Numbrs -------------------------------*/
+.numbers {
+  padding: 150px 0;
+  background-image: url("../images/background/background2.webp");
+  background-size: cover;
+  background-attachment: fixed;
+}
+.numbers-content {
+  margin-top: 120px;
+}
+.numbers-item {
+  width: 25%;
+}
+
+.numbers-item i {
+  color: var(--styleColor);
+}
+
+.title-number-item {
+  font-size: 45px;
+  margin: 8px 0;
+}
+
+.description-number-item {
+  font-size: 16px;
+}
+@media (max-width: 768px) {
+  .numbers {
+    padding: 230px 0;
+  }
+  .numbers-content {
+    margin-top: 80px;
+  }
+  .numbers-item {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+/*--------------------End Numbers---------------------------------*/
+
+/*--------------------------------Start Princing ----------------*/
+
+.pricing {
+  padding-bottom: 170px;
+}
+.pricing-item {
+  width: 28%;
+  border: 1px solid var(--subColor);
+  color: var(--subColor);
+  padding: 60px 20px;
+}
+
+.price-pricing {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 30px 24px;
+  width: 134px;
+  border: 2px solid var(--styleColor);
+  font-weight: bolder;
+  font-size: 26px;
+  border-radius: 50%;
+  overflow-wrap: break-word;
+  color: var(--mainColor);
+  transition: color 0.4s;
+}
+.title-pricing {
+  font-size: 18px;
+  font-weight: lighter;
+  transition: color 0.5s;
+}
+.description-offer-pricing {
+  width: 160px;
+  margin: 0 auto 15px;
+  line-height: 160%;
+}
+.buy-pricing {
+  border: 2px solid var(--styleColor);
+  background-color: transparent;
+  color: var(--styleColor);
+}
+.pricing-item:hover {
+  border: none;
+}
+.pricing-item:hover .price-pricing {
+  color: #fff;
+}
+
+.pricing-item:hover .title-pricing {
+  color: var(--styleColor);
+}
+@media (max-width: 768px) {
+  .pricing-content.flex {
+    flex-direction: column;
+  }
+  .pricing-item {
+    width: 80%;
+    margin: 0 auto 30px;
+  }
+}
+@media (min-width:769px) and (max-width:999px){
+  .pricing-item {
+    width:42%;
+    margin: 0 auto 30px;
+  }
+}
+/*---------------- End Pricing Style--------------------*/
+
+/*-------------- Start testmonials Styling -------------------*/
+
+.testmonial {
+  background-image: url(../images/background/background3.webp);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 400px;
+}
+
+.testmonials-item {
+  width: 40%;
+}
+.testmonial .container.flex {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: space-around;
+}
+.personal-testmonial.flex {
+  justify-content: flex-start;
+}
+
+.personal-testmonial img {
+  border-radius: 50%;
+}
+.name-personal-testmonials {
+  font-weight: bolder;
+  margin: 8px 0px 8px 10px;
+}
+
+.description-personal-testmonials {
+  color: var(--styleColor);
+  margin-left: 10px;
+}
+.description-testmonials {
+  margin-top: 20px;
+  line-height: 180%;
+}
+
+@media (max-width: 1088px) {
+  .testmonial{
+    height: 600px;
+  }
+  .testmonial .flex {
+    flex-direction: column;
+  }
+  .testmonials-item  {
+    width: 450px;
+    text-align: center;
+  }
+  .description-testmonials{
+    margin-top: 0px;
+  }
+  .name-personal-testmonials {
+    margin-bottom: 0px;
+  }
+}
+
+/*----------------- Fin Testmonials -------------------------*/
+
+/*-------------------Start Team Styling ---------------------------*/
+.teams {
+  padding: 0 0 170px;
+}
+.content-teams {
+  width: 28%;
+  background-color: #95969b17;
+  padding: 40px 20px;
+}
+
+.name-personal-teams {
+  margin: 10px 0;
+  transition: color 0.8s;
+}
+
+.description-personal-teams {
+  font-weight: lighter;
+  color: var(--subColor);
+  transition: color 0.9s;
+}
+
+.personal-teams img {
+  transition: all 0.7s;
+}
+.content-teams:hover .personal-teams img {
+  filter: brightness(0.3);
+}
+
+.content-teams:hover .name-personal-teams {
+  color: #fff;
+}
+
+.content-teams:hover .description-personal-teams {
+  color: var(--styleColor);
+}
+.social-media-personal-teams {
+  top: 0;
+  right: 0;
+  opacity: 0;
+  visibility: 0;
+  transition: opacity 0.7s, visibility 0.7s;
+}
+.social-media-personal-teams a {
+  display: block;
+  padding: 20px;
+  background-color: var(--styleColor);
+}
+.content-teams:hover .social-media-personal-teams {
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 768px) {
+  .teams .flex {
+    flex-direction: column;
+  }
+  .content-teams {
+    width: 80%;
+    margin: 0 auto 30px;
+  }
+}
+@media (min-width:769px) and (max-width:999px){
+  .content-teams {
+    width:42%;
+    margin: 0 auto 30px;
+  }
+}
+
+/*--------------------End Team Styling ----------------------------*/
+
+/*------------------ Start News styling ------------------------*/
+.news {
+  background: #fafafa;
+  overflow: hidden;
+  margin-bottom: 170px;
+}
+.news-item {
+  width: 32%;
+  background-color: #fff;
+}
+.about-news {
+  padding: 14px;
+}
+.about-news i {
+  color: var(--styleColor);
+  margin: 0 6px 0 8px;
+}
+
+.title-news {
+  margin-bottom: 14px;
+  width: 80%;
+}
+
+.description-news {
+  width: 80%;
+  line-height: 1.6;
+  color: var(--subColor);
+  margin-bottom: 15px;
+}
+
+.link-news {
+  color: var(--styleColor);
+}
+@media (max-width: 768px) {
+  .news-content.flex {
+    flex-direction: column;
+  }
+  .news-item {
+    width: 80%;
+    margin: 0 auto 30px;
+  }
+}
+@media (min-width:769px) and (max-width:999px){
+  .news-item {
+    width:42%;
+    margin: 0 auto 30px;
+  }
+}
+/*-------------- End Newss Styling ---------------------*/
+
+/*------------------ Start styling foooter ---------------------*/
+.contact-us-item {
+  width: 32%;
+  padding-bottom: 20px;
+}
+.contact-us-item i {
+  color: var(--styleColor);
+}
+.title-contact-us {
+  margin: 20px 0;
+}
+
+.description-contact-us {
+  color: var(--subColor);
+}
+
+form {
+  width: 70%;
+  margin: auto;
+}
+input {
+  outline: none;
+  border: none;
+}
+.same-input {
+  padding: 16px 14px;
+  margin: 50px 10px 20px;
+  width: 325px;
+  background-color: #ccca;
+}
+
+input.subject,
+textarea {
+  width: 700PX;
+  margin-left: 10px;
+  background-color: #ccca;
+  margin-bottom: 20px;
+  padding: 16px 14px;
+}
+
+textarea {
+  outline: none;
+  border-style: none;
+  height: 60px;
+}
+
+form input.btn {
+  display: block;
+  margin: auto;
+  background-color: var(--styleColor);
+  margin-bottom: 140px;
+}
+
+.signature {
+  text-align: center;
+  background-color: #111;
+  padding: 80px;
+}
+
+.social-media-signature i {
+  padding: 16px;
+  background-color: var(--styleColor);
+  margin-bottom: 16px;
+}
+.social-media-signature .fa-facebook {
+  padding: 16px 24px;
+}
+.description-signature {
+  color: var(--subColor);
+}
+.description-signature a {
+  color: var(--styleColor);
+}
+
+@media (max-width: 1088px) {
+  form{
+    width: 90%;
+  }
+  input.subject,
+textarea,
+  .same-input {
+    width: 90%;
+    margin: 0 10px 30px;
+}
+@media (max-width: 580px) {
+  .content-contact-us.flex{
+    flex-direction: column;
+  }
+  .contact-us-item {
+    margin: auto;
+}
+}
+/*--------------- End Styling Footer -----------------------------*/
